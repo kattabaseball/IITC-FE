@@ -1,0 +1,48 @@
+.page-container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;    
+    padding: 24px;
+
+    .new-pw{
+
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+      text-align: center;
+
+      .fields{
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        border: 2px dotted rgb(134, 127, 127);
+
+      
+      }
+
+      .sentence{
+        // display: flex;
+        // flex-direction: column;
+        // align-items: left;
+      }
+     
+    }
+
+    .btn{
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+        gap: 12px;
+        margin-top: 22px;
+
+        .button{
+            flex: 1;
+
+        }
+    }
+}
+

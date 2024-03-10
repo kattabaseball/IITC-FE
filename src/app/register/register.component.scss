@@ -1,0 +1,39 @@
+.main{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    color: rgb(8, 7, 7);
+    font-family:'Calibri';
+    justify-content: center;
+
+    .page-container{
+        .reg-form-container{
+            form{
+                display: flex;
+                flex-direction: column;
+                gap: 8px;
+                   
+
+
+                .regBtns{
+                    padding-bottom: 24px;
+                    width: 100%;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    flex-direction: row;
+                    gap: 12px;
+
+
+                    button{
+
+                        flex: 1;
+                    }
+
+                }
+            }
+        }
+    }
+}

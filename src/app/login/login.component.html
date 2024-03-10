@@ -1,0 +1,46 @@
+<div class="main">
+    <div class="page-container">
+        <div class="form-container" style="width: fit-content;">
+            <form [formGroup]="loginFG" validate>
+                
+                <h1 style="display: flex;justify-content: center;font-family:fantasy;font-size: 50px;padding-bottom: 20px;">IITC EXAM Login</h1>
+
+                <mat-form-field appearance="outline">
+                    <mat-label>User name</mat-label>
+                    <input matInput formControlName="username" required>
+
+                    @if(loginFG.get('username')?.hasError('required')){
+                      <mat-error>
+                         Username is required
+                      </mat-error>
+                    }
+                      
+                  </mat-form-field>
+
+                  <mat-form-field appearance="outline">
+                    <mat-label>Password</mat-label>
+                    <input matInput  [type]="hide ? 'password' : 'text'" formControlName="password" required>
+                    <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+                        <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+                      </button>
+
+                      @if(loginFG.get('password')?.hasError('required')){
+                        <mat-error>
+                           Password is required
+                        </mat-error>
+                      }
+                  </mat-form-field>
+
+                  <div class="loginBtns">
+                    <button mat-raised-button color="primary" [disabled]="!loginFG.valid" (click)="login()">Log in</button>
+
+                    <button mat-raised-button color="accent" routerLink="/register"> Sign up </button>
+                  </div>
+                  
+
+                  <div id="buttonDiv" ></div>
+            
+            </form>
+        </div>
+    </div>
+</div>

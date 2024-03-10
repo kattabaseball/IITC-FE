@@ -1,0 +1,89 @@
+<div class="main">
+    <div class="page-container">
+        <div class="reg-form-container" style="width: fit-content;">
+            <form [formGroup]="regFG" validate>
+                
+                <h1 style="display: flex;justify-content: center;font-family:fantasy;font-size: 50px;padding-bottom: 20px;">IITC EXAM Register</h1>
+
+                  <mat-form-field appearance="outline" >
+                    <mat-label>Enter the user name</mat-label>
+                    <input matInput formControlName="username" [(ngModel)]="username" required>
+                    
+                    @if(regFG.get('username')?.hasError('required')){
+                      <mat-error>
+                         Username is required
+                      </mat-error>
+                    }
+                      
+                  </mat-form-field>
+                  
+
+                  <mat-form-field appearance="outline">
+                    <mat-label>Enter you email</mat-label>
+                    <input matInput formControlName="email" [(ngModel)]="email" required>
+
+                    @if(regFG.get('email')?.hasError('email')){
+                      <mat-error>
+                         Enter a valid email
+                      </mat-error>
+                    }
+                    @if(regFG.get('email')?.hasError('required')){
+                      <mat-error>
+                         Email is required
+                      </mat-error>
+                    }
+
+                  
+                  </mat-form-field>
+
+                  <mat-form-field appearance="outline">
+                    <mat-label>Enter you phone number</mat-label>
+                    <span matTextPrefix>+94 &nbsp;</span>
+                    <input  type="tel" matInput placeholder="722323341" formControlName="contactNumber" [(ngModel)]="contactNumber" maxlength="9" required>
+
+                    @if(regFG.get('contactNumber')?.hasError('required')){
+                      <mat-error>
+                         Contact number is required
+                      </mat-error>
+                    }
+                    @if(regFG.get('contactNumber')?.hasError('pattern')){
+                      <mat-error>
+                         Contact number is invalid
+                      </mat-error>
+                    }
+                    
+                  </mat-form-field>
+
+                  <mat-form-field appearance="outline">
+                    <mat-label>Password</mat-label>
+                    <input matInput    matTooltip="At leaset One uppercase, One lowercase, One number and 8-16 characters"
+                     type="password" [type]="hide ? 'password' : 'text'" formControlName="password" [(ngModel)]="password" required> 
+                    <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+                      <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+                    </button>
+
+                    @if(regFG.get('password')?.hasError('required')){
+                      <mat-error>
+                         Password is required
+                      </mat-error>
+                    }
+                    @if(regFG.get('password')?.hasError('pattern')){
+                      <mat-error>
+                         Password is invalid
+                      </mat-error>
+                    }
+                    
+                  </mat-form-field>
+                  
+                
+                 <div class="regBtns">
+                    <button mat-raised-button color="primary" [disabled]="!regFG.valid" (click)="registerUser()">Register</button>
+
+                    <button mat-raised-button color="warn" (click)="cancel()">Cancel</button>
+                 </div>
+
+            
+            </form>
+        </div>
+    </div>
+</div>
